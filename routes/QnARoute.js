@@ -14,9 +14,10 @@ router.post('/getanswer', async (req,res) => {
     // Create header with token
     const header = {
         "Content-Type":"application/json",
-        "Authorization":"EndpointKey 356b30ed-47c7-4f2e-bdf3-b5ec64a1b51b"
+        "Authorization": process.env.Authorization
     }
     
+    // Post the question to azure cognitive service and get response
     axios.post(QNA_API_URL, 
       {"question": req.body.question}, 
       {
