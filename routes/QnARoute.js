@@ -5,7 +5,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 // Get the answer for the question
-router.post('/getanswer', async (req,res) => {
+router.post('/generateAnswer', async (req,res) => {
     
 
     // Get QNA-URL from enviroment variables
