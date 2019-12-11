@@ -27,7 +27,12 @@ router.post('/', (req,res) => {
         headers: header
       })
       .then((response) => {
-        res.status(response.status).send(response.data);
+        res.status(response.status).send({
+            "operationState": response.data.operationState,
+            "createdTimestamp": response.data.createdTimestamp,
+            "lastActionTimestamp": response.data.lastActionTimestamp,
+            "operationId": response.data.operationId
+        });
        
       })
       .catch((error) => {

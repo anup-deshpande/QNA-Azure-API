@@ -28,7 +28,9 @@ app.use('/api/login', loginRoute);
 
 // Route Middlewares with JWT verification
 // app.use('/api/knowledgebases', verify, KBRoute);
-// app.use('/api/user', UserRoute);
+// app.use('/api/users', UserRoute);
+// app.use('/api/login', loginRoute);
+
 
 app.listen(port, () => console.log('Server up and running'));
 
