@@ -13,7 +13,7 @@ API that uses Azure cognitive services QNA maker to create a question-answer lay
        - [Get details of a knowledgebase](#get-details-of-a-knowledgebase)
        - [List all knowledgebases](#list-all-knowledgebases)
        - [Publish Knowledgebase](#publish-knowledgebase)
-       - [Delete a knowledgebase](#delete-knowledgebase)
+       - [Delete a knowledgebase](#delete-a-knowledgebase)
    - [References](#references)
 
 ## Base URL
