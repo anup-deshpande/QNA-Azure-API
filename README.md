@@ -2,7 +2,9 @@
 
 API that uses Azure cognitive services QNA maker to create a question-answer layer over the knowledgebase.
 
+
 ## Table Of Contents
+   - [Base URL](#base-url)
    - [API Endpoints](#api-endpoints)
       - [QNA](#qna)
         - [Generate Answer](#generate-answer)
@@ -11,16 +13,20 @@ API that uses Azure cognitive services QNA maker to create a question-answer lay
        - [Get details of a knowledgebase](#get-details-of-a-knowledgebase)
        - [List all knowledgebases](#list-all-knowledgebases)
        - [Publish Knowledgebase](#publish-knowledgebase)
+       - [Delete a knowledgebase](#delete-knowledgebase)
    - [References](#references)
 
+## Base URL
+> http://azureqnamaker.live:3000/api
 
 ## API Endpoints
 
 ### QNA
 
 #### Generate Answer
-> Link
-* HTTP Method - ``` Post ``` 
+> /knowledgebases/{kbId}/generateanswer
+
+* HTTP Method: ``` post ```
 >
 * URI Parameters -
   *  kbId (Required) - Knowledgebase Id to search answer
@@ -52,7 +58,8 @@ API that uses Azure cognitive services QNA maker to create a question-answer lay
 ### Knowledgebase
 
 #### Create new knowledgebase 
-> Link
+> /knowledgebases
+> 
 * HTTP Method - ``` Post ``` 
 >
 * Request body -
@@ -107,8 +114,8 @@ API that uses Azure cognitive services QNA maker to create a question-answer lay
 
 > Note: Since every knowledgebase will be generated with unique KbId, multiple knowledgebases can have same name.  
 
-### Get details of a knowledgebase 
-> Link
+#### Get details of a knowledgebase 
+> /knowledgebases/{kbId}
 * Method - ``` Get ```
 >
 * URI parameters -
@@ -141,8 +148,8 @@ API that uses Azure cognitive services QNA maker to create a question-answer lay
   * 404 Not found - Knowledge base not found. 
 
 
-### List all knowledgebases
-> Link
+#### List all knowledgebases
+> /knowledgebases
 * Method - ``` Get ```
 >
 * Sample Response - 
@@ -188,9 +195,10 @@ API that uses Azure cognitive services QNA maker to create a question-answer lay
 * Status codes - 
    * 200 OK - List of all knowledgebases
 
-### publish knowledgebase 
-> Link
-* Method - ``` Get ```
+#### publish knowledgebase 
+> /knowledgebases/{kbId}
+> 
+* Method - ``` Post ```
 >
 * URI parameters -
   * kbId (Required) - Knowledgebase id
@@ -212,6 +220,28 @@ API that uses Azure cognitive services QNA maker to create a question-answer lay
     "language": "English",
     "enableHierarchicalExtraction": false,
     "createdTimestamp": "2019-12-09T01:11:46Z"
+   }
+   ```
+   
+* Status codes -
+   * 200 OK - Details of the knowledgebase
+>
+* Error Codes-
+  * 404 Not found - Knowledge base not found. 
+
+#### delete a knowledgebase
+> /knowledgebases/{kbId}
+> 
+* Method - ``` Delete ```
+>
+* URI parameters -
+  * kbId (Required) - Knowledgebase id
+>
+* Sample Response -
+   ```
+   {
+    "code": "KbDeleted",
+    "message": "Knowledge base deleted successfully"
    }
    ```
    
